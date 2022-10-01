@@ -63,7 +63,10 @@ RUN apt -y update \
     && apt -y install fonts-wqy-zenhei \
     && apt -y install fonts-tlwg-loma-otf \
     && apt -y install ttf-ubuntu-font-family \
-    && curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash \
-    && nvm install 16 \
+    && curl -sL https://deb.nodesource.com/setup_16.x | bash - \
+    && apt -y update \
+    && apt -y install nodejs \
+    && apt -y install npm \
+    && node -v
     && apt clean all \
     && rm -rf /var/lib/apt/lists/*
